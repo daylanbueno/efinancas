@@ -2,7 +2,7 @@ import express from 'express';
 import routes from './routes'; // importando rotas para configuar no servidor express
 
 class App {
-  constructor() {                                                          
+  constructor() {
     this.server = express();
 
     this.middlewares();
