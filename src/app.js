@@ -1,8 +1,7 @@
 import express from 'express';
 import routes from './routes'; // importando rotas para configuar no servidor express
 
-
-import './database'
+import './database';
 
 class App {
   constructor() {
