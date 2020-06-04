@@ -9,7 +9,7 @@ class UsuarioController {
     });
 
     if (usuario) {
-      return response.json({
+      return response.status(401).json({
         error: 'O usuário com o email informado já existe',
       });
     }
