@@ -1,20 +1,19 @@
-import Sequelize from 'sequelize'
+import Sequelize from 'sequelize';
 
-import configDabase from '../config/database'
-import Usuario from '../app/models/Usuario'
+import configDabase from '../config/database';
+import Usuario from '../app/models/Usuario';
 
+const models = [Usuario];
 
-const  models = [Usuario]
+class Datebase {
+  constructor() {
+    this.init();
+  }
 
-class Datebase  {
-    constructor() {
-        this.init();
-    }
+  init() {
+    this.connection = new Sequelize(configDabase);
 
-    init() {
-        this.connection = new Sequelize(configDabase)
-        
-        models.map((model) => model.init(this.connection));
-    }
+    models.map(model => model.init(this.connection));
+  }
 }
-export default  new Datebase();
+export default new Datebase();

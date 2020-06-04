@@ -25,6 +25,7 @@ module.exports = {
     'prettier'
   ],
   rules: {
+    'class-methods-use-this':'off',
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [
       'warn',
