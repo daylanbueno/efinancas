@@ -27,6 +27,14 @@ module.exports = {
       },
       valor: {
         type: Sequelize.FLOAT,
+        allowNull: false,
+      },
+      id_pessoa: {
+        type: Sequelize.INTEGER,
+        references: { model: 'pessoa', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,

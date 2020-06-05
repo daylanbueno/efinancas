@@ -15,6 +15,10 @@ class Pessoa extends Model {
       }
     );
   }
+
+  static associete(model) {
+    this.hasMany(model.Lancamento, { foreignKey: 'id_pessoa' });
+  }
 }
 
 export default Pessoa;
