@@ -9,7 +9,6 @@ class Lancamento extends Model {
         situacao: Sequelize.STRING,
         data_pagamento: Sequelize.DATE,
         data_vencimento: Sequelize.DATE,
-        id_pesssoa: Sequelize.INTEGER,
         valor: Sequelize.FLOAT,
       },
       {
@@ -17,6 +16,14 @@ class Lancamento extends Model {
         tableName: 'lancamento',
       }
     );
+    return this;
+  }
+
+  static associete(model) {
+    this.belongsTo(model.Pessoa, {
+      foreignKey: 'id_pessoa',
+      as: 'pessoa',
+    });
   }
 }
 

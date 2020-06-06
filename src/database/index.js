@@ -16,6 +16,9 @@ class Datebase {
     this.connection = new Sequelize(configDabase);
 
     models.map(model => model.init(this.connection));
+    models.map(
+      model => model.associete && model.associete(this.connection.models)
+    );
   }
 }
 export default new Datebase();

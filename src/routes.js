@@ -22,6 +22,7 @@ routes.get('/pessoas', PessoaController.listar);
 
 // Lancamento
 routes.post('/lancamentos', LancamentoController.incluir);
+routes.get('/lancamentos', LancamentoController.listar);
 
 export default routes;
 
