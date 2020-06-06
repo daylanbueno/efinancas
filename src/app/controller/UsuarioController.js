@@ -17,6 +17,13 @@ class UsuarioController {
     const { nome, email } = await Usuario.create(request.body);
     return response.json({ nome, email });
   }
+
+  async listar(req, res) {
+    const usuarios = await Usuario.findAll({
+      attributes: ['id', 'nome', 'email'],
+    });
+    return res.json(usuarios);
+  }
 }
 
 export default new UsuarioController();

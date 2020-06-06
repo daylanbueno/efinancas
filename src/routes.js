@@ -14,6 +14,7 @@ routes.use(authInterceptor); // tudo que estive daqui para baixo requer token va
 
 // Usuarios
 routes.post('/usuarios', UsuarioController.incluir);
+routes.get('/usuarios', UsuarioController.listar);
 
 // Pessoas
 routes.post('/pessoas', PessoaController.incluir);
