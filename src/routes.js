@@ -18,6 +18,7 @@ routes.get('/usuarios', UsuarioController.listar);
 
 // Pessoas
 routes.post('/pessoas', PessoaController.incluir);
+routes.get('/pessoas', PessoaController.listar);
 
 // Lancamento
 routes.post('/lancamentos', LancamentoController.incluir);
