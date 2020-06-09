@@ -9,7 +9,7 @@ const validaSchema = yup.object().shape({
 class PessoaController {
   async incluir(request, response) {
     validaSchema.validate(request.body).catch(err => {
-      return response.status(400).json({ error: err.errors });
+      return response.status(400).Pessoajson({ error: err.errors });
     });
     const pessoa = await Pessoa.create(request.body);
     return response.json(pessoa);
