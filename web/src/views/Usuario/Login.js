@@ -64,7 +64,6 @@ const SignIn = props => {
                   fullWidth
                   label="Seu email"
                   name="email"
-                  onChange
                   type="text"
                   variant="outlined"
                 />
