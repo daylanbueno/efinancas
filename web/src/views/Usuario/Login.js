@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { useDispatch } from 'react-redux';
+
 import { withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import { Button, TextField, Typography } from '@material-ui/core';
@@ -9,6 +12,7 @@ import * as yup from 'yup';
 import { toast } from 'react-toastify';
 
 import api from '../../services/api';
+import { addToken } from '../../store/modules/auth/action';
 
 const useStyles = makeStyles((theme) => ({
     content: {
@@ -56,11 +60,13 @@ const validaCampos = yup.object().shape({
 
 const SignIn = () => {
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     const handleSubmit = async (values) => {
         api.post('auth', values)
             .then((response) => {
-                console.log(response.data);
+                const { token } = response.data;
+                dispatch(addToken(token));
             })
             .catch((err) => {
                 toast.error(err.response.data.error);
