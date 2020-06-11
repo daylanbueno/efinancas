@@ -8,6 +8,9 @@ import { AppBar, Toolbar } from '@material-ui/core';
 const useStyles = makeStyles(() => ({
   root: {
     boxShadow: 'none'
+  },
+  titulo: {
+      marginRight: 10
   }
 }));
 
@@ -24,10 +27,11 @@ const Topbar = props => {
       position="fixed"
     >
       <Toolbar>
+        <h3 className={classes.titulo}>E-FINANÇAS</h3>
         <RouterLink to="/">
           <img
             alt="Logo"
-            src="/images/logos/logo--white.svg"
+            src="/images/logos/logo.png"
           />
         </RouterLink>
       </Toolbar>
