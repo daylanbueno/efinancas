@@ -1,11 +1,12 @@
 import express from 'express';
 import routes from './routes'; // importando rotas para configuar no servidor express
-
+import cors from 'cors';
 import './database';
 
 class App {
   constructor() {
     this.server = express();
+    this.server.use(cors());
 
     this.middlewares();
     this.routes();

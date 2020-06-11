@@ -1,11 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
+import { Button, TextField, Typography } from '@material-ui/core';
 
 import { ErrorMessage, Formik, Form as FormikForm, Field } from 'formik';
 import * as yup from 'yup';
 
-import { Button, TextField, Typography } from '@material-ui/core';
+import { toast } from 'react-toastify';
+
+import api from '../../services/api';
 
 const useStyles = makeStyles((theme) => ({
     content: {
@@ -53,12 +56,24 @@ const validaCampos = yup.object().shape({
 
 const SignIn = () => {
     const classes = useStyles();
+
+    const handleSubmit = async (values) => {
+        api.post('auth', values)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((err) => {
+                toast.error(err.response.data.error);
+            });
+    };
+
     return (
         <div className={classes.content}>
             <div className={classes.contentBody}>
                 <Formik
                     initialValues={{ email: '', senha: '' }}
                     validationSchema={validaCampos}
+                    onSubmit={handleSubmit}
                 >
                     {() => (
                         <FormikForm className={classes.form}>
