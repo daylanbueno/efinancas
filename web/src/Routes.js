@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Switch, Redirect } from 'react-router-dom';
 
 import { RouteWithLayout } from './components';
@@ -15,7 +15,7 @@ import {
 const Routes = () => {
     return (
         <Switch>
-            <Redirect exact from="/" to="/dashboard" />
+            <Redirect exact from="/" to="/dashboardvv" />
             <RouteWithLayout
                 component={DashboardView}
                 exact
