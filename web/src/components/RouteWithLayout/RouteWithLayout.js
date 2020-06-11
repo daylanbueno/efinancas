@@ -1,9 +1,23 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Main as MainLayout, Minimal as MinimalLayout } from '../../layouts'
 
 const RouteWithLayout = (props) => {
-    const { layout: Layout, component: Component, ...rest } = props;
+    const { isPrivate,  component: Component, ...rest } = props;
+
+    const isUsuarioLogado = true
+
+    const Layout = isUsuarioLogado ? MainLayout : MinimalLayout
+
+
+    if(!isUsuarioLogado && isPrivate) {
+        return <Redirect  to="/login"/>
+    }
+
+    if(isUsuarioLogado && !isPrivate) {
+        return <Redirect  to="/dashboard"/>
+    }
 
     return (
         <Route

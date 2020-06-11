@@ -19,18 +19,21 @@ const Routes = () => {
             <RouteWithLayout
                 component={DashboardView}
                 exact
+                isPrivate
                 layout={MainLayout}
                 path="/dashboard"
             />
             <RouteWithLayout
                 component={UserListView}
                 exact
+                isPrivate
                 layout={MainLayout}
                 path="/usuarios"
             />
             <RouteWithLayout
                 component={ProductListView}
                 exact
+                isPrivate
                 layout={MainLayout}
                 path="/products"
             />
